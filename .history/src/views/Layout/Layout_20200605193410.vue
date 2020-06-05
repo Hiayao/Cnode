@@ -39,8 +39,8 @@
           <img src="//static.cnodejs.org/FpMZk31PDyxkC8yStmMQL4XroaGD" alt class="imgTre" />提供应用性能服务。
         </div>
         <div class="wordLast">
-          <div class="wordTre">新手搭建 Node.js 服务器，推荐使用无需备案的</div>
-          <div class="wordFour">DigitalOcean(https://www.digitalocean.com/)</div>
+            <div class="wordTre">新手搭建 Node.js 服务器，推荐使用无需备案的</div>
+            <div class="wordFour">DigitalOcean(https://www.digitalocean.com/)</div>
         </div>
       </div>
     </div>
@@ -137,16 +137,14 @@ export default {
   background: red;
   display: flex;
   justify-content: center;
-  position: relative;
-  bottom: 0px;
 }
 .footAll {
   width: 1240px;
-  height: 160px;
+  height: 200px;
   //   display: flex;
-  margin-left: 40px;
+  //   position: relative;
   flex-wrap: wrap;
-  background: red;
+  background: white;
 }
 .wordOne {
   font-size: 13px;
@@ -157,7 +155,6 @@ export default {
 }
 .wordAllOne {
   display: flex;
-  margin-top: 18px;
 }
 .wordTre {
   font-size: 13px;
@@ -177,11 +174,11 @@ export default {
   height: 50px;
 }
 .wordFour {
-  color: #256df8;
-  font-size: 13px;
+    color: #256DF8;
+    font-size: 13px;
+    margin-top: 4px;
 }
 .wordLast {
-  display: flex;
-  margin-top: 6px;
+    display: flex;
 }
 </style>

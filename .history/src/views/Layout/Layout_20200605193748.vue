@@ -137,16 +137,15 @@ export default {
   background: red;
   display: flex;
   justify-content: center;
-  position: relative;
-  bottom: 0px;
 }
 .footAll {
   width: 1240px;
   height: 160px;
   //   display: flex;
-  margin-left: 40px;
+  //   position: relative;
   flex-wrap: wrap;
-  background: red;
+  background: white;
+   margin-left: 20px;
 }
 .wordOne {
   font-size: 13px;

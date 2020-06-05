@@ -1,6 +1,10 @@
 <template>
   <div>
-    <el-card class="box-card">
+    <el-button
+    type="primary"
+   
+    v-loading.fullscreen.lock="fullscreenLoading">
+     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>欢迎来到Cnode社区</span>
       </div>
@@ -27,6 +31,7 @@
         </div>
       </el-form>
     </el-card>
+    </el-button>
   </div>
 </template>
 
@@ -56,6 +61,7 @@ export default {
       }
     };
     return {
+      
       ruleForm: {
         pass: "",
         checkPass: "",
@@ -79,6 +85,7 @@ export default {
     };
   },
   methods: {
+    
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
@@ -88,7 +95,8 @@ export default {
           return false;
         }
       });
-    }
+    },
+    
   },
   mounted() {},
   watch: {},

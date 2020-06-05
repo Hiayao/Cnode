@@ -134,19 +134,19 @@ export default {
 .foot {
   height: 200px;
   width: 100%;
+  position: relative;
   background: red;
   display: flex;
   justify-content: center;
-  position: relative;
-  bottom: 0px;
 }
 .footAll {
   width: 1240px;
   height: 160px;
   //   display: flex;
-  margin-left: 40px;
+    position: absolute
   flex-wrap: wrap;
-  background: red;
+  background: white;
+  left: 60px;
 }
 .wordOne {
   font-size: 13px;

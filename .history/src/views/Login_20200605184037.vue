@@ -1,5 +1,12 @@
 <template>
   <div>
+    <el-button
+    type="primary"
+    @click="openFullScreen1"
+    v-loading.fullscreen.lock="fullscreenLoading">
+    指令方式
+  </el-button>
+  
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>欢迎来到Cnode社区</span>
@@ -56,6 +63,7 @@ export default {
       }
     };
     return {
+      fullscreenLoading: false,
       ruleForm: {
         pass: "",
         checkPass: "",
@@ -79,6 +87,7 @@ export default {
     };
   },
   methods: {
+    
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
@@ -88,7 +97,8 @@ export default {
           return false;
         }
       });
-    }
+    },
+    
   },
   mounted() {},
   watch: {},
