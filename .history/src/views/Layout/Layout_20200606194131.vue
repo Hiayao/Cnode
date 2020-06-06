@@ -20,14 +20,13 @@
           <div class="nav">API</div>
           <div class="nav">关于</div>
           <div class="nav">注册</div>
-          <div class="nav" @click="login" v-if="this.user === null">登录</div>
-          <div class="nav" @click="out" v-else>退出</div>
+          <div class="nav" @click="login">登录</div>
         </div>
       </div>
     </div>
     <div class="mainAll">
       <div class="main">
-        <el-card class="box-card" v-if="user === null">
+        <el-card class="box-card" v-if="user === ''">
           <div class="wrdO" style="margin-bottom:12px">CNode：Node.js专业中文社区</div>
           <div class="mainWord">
             <div class="wrdO">您可以</div>
@@ -42,7 +41,6 @@
         <el-card class="box-card" v-else>
           <div>个人信息：</div>
           <div>用户名：{{this.user}}</div>
-          <div>"本地区最帅的男人"</div>
         </el-card>
       </div>
     </div>
@@ -78,23 +76,20 @@ export default {
   components: {},
   data() {
     return {
-      user: null
+     user:''
     };
   },
   methods: {
     goHome() {
-      this.$router.push("");
+      this.$router.push("/");
     },
     login() {
       this.$router.push("/login");
     },
-    out() {
-      this.user = null;
-      localStorage.clear();
-    },
+    
   },
   mounted() {
-    this.user = localStorage.getItem("user");
+    this.user = localStorage.getItem('user')
   },
   watch: {},
   computed: {}
@@ -244,7 +239,7 @@ export default {
   color: #888888;
   margin-left: 6px;
   margin-right: 6px;
-  &:hover {
+  &:hover{
     cursor: pointer;
     text-decoration: underline;
   }
@@ -254,14 +249,15 @@ export default {
   width: 150px;
   line-height: 30px;
   border: 0;
-  background: #5bc0de;
+  background: #5BC0DE;
   text-align: center;
   margin-top: 10px;
   border-radius: 5px;
   color: white;
   &:hover {
     cursor: pointer;
-    background: rgb(80, 144, 163);
+    background:rgb(80, 144, 163) ;
   }
+
 }
 </style>

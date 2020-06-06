@@ -20,33 +20,18 @@
           <div class="nav">API</div>
           <div class="nav">关于</div>
           <div class="nav">注册</div>
-          <div class="nav" @click="login" v-if="this.user === null">登录</div>
-          <div class="nav" @click="out" v-else>退出</div>
+          <div class="nav" @click="login">登录</div>
         </div>
       </div>
     </div>
-    <div class="mainAll">
-      <div class="main">
-        <el-card class="box-card" v-if="user === null">
-          <div class="wrdO" style="margin-bottom:12px">CNode：Node.js专业中文社区</div>
-          <div class="mainWord">
-            <div class="wrdO">您可以</div>
-            <div class="wrdT" @click="login">登录</div>
-            <div class="wrdO">或</div>&nbsp;
-            <div class="wrdT">注册</div>
-            <div class="wrdO">, 也可以</div>
-          </div>
-          <div class="wrdS">通过 GitHub 登录</div>
-        </el-card>
-
-        <el-card class="box-card" v-else>
-          <div>个人信息：</div>
-          <div>用户名：{{this.user}}</div>
-          <div>"本地区最帅的男人"</div>
+    <div class="main">
+      <router-view></router-view>
+      <div class="mainAll">
+        <el-card class="box-card">
+          CNode：Node.js专业中文社区
         </el-card>
       </div>
     </div>
-    <router-view></router-view>
 
     <div class="foot">
       <div class="footAll">
@@ -77,25 +62,17 @@ export default {
   props: {},
   components: {},
   data() {
-    return {
-      user: null
-    };
+    return {};
   },
   methods: {
     goHome() {
-      this.$router.push("");
+      this.$router.push("/");
     },
     login() {
       this.$router.push("/login");
-    },
-    out() {
-      this.user = null;
-      localStorage.clear();
-    },
+    }
   },
-  mounted() {
-    this.user = localStorage.getItem("user");
-  },
+  mounted() {},
   watch: {},
   computed: {}
 };
@@ -217,51 +194,11 @@ export default {
   display: flex;
   margin-top: 6px;
 }
-
-.box-card {
-  width: 270px;
-  position: absolute;
-  right: 20px;
-  top: 30px;
-}
-.main {
-  width: 1240px;
-  position: relative;
-}
+// .main {
+//   display: flex;
+// }
 .mainAll {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  width: 200px;
 }
-.mainWord {
-  display: flex;
-}
-.wrdO {
-  font-size: 14px;
-}
-.wrdT {
-  font-size: 14px;
-  color: #888888;
-  margin-left: 6px;
-  margin-right: 6px;
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-}
-.wrdS {
-  font-size: 15px;
-  width: 150px;
-  line-height: 30px;
-  border: 0;
-  background: #5bc0de;
-  text-align: center;
-  margin-top: 10px;
-  border-radius: 5px;
-  color: white;
-  &:hover {
-    cursor: pointer;
-    background: rgb(80, 144, 163);
-  }
-}
+
 </style>

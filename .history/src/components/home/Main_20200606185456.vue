@@ -51,17 +51,17 @@ export default {
   data() {
     return {
       list: [],
-      currentPage4: 1
+       currentPage4: 1
       //   id:''
     };
   },
   methods: {
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
-    },
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
+      },
     getData() {
       axios
         .get("https://cnodejs.org/api/v1/topics")
@@ -157,9 +157,7 @@ export default {
 .title {
   margin-left: 10px;
   text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 600px;
+  width: 600;
   &:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -177,4 +175,5 @@ export default {
     cursor: pointer;
   }
 }
+
 </style>

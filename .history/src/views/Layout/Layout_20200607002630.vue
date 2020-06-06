@@ -78,7 +78,8 @@ export default {
   components: {},
   data() {
     return {
-      user: null
+      user: ""
+      
     };
   },
   methods: {
@@ -89,8 +90,11 @@ export default {
       this.$router.push("/login");
     },
     out() {
-      this.user = null;
-      localStorage.clear();
+      this.user = ''
+
+      // this.$router.replace('/home');
+      //localStorage.setItem('user','');
+      localStorage.clear()
     },
   },
   mounted() {

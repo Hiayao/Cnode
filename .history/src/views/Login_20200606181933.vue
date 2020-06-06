@@ -87,7 +87,7 @@ export default {
             type: "success"
           });
           this.$router.push("/");
-          localStorage.setItem('user',this.ruleForm.name);
+          localStorage.setItem('user',this.ruleForm.name)
         } else {
           this.$message.error("错了哦，用户名或密码错误");
           return false;

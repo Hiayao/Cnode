@@ -20,14 +20,14 @@
           <div class="nav">API</div>
           <div class="nav">关于</div>
           <div class="nav">注册</div>
-          <div class="nav" @click="login" v-if="this.user === null">登录</div>
+          <div class="nav" @click="login" v-if="this.user === ''">登录</div>
           <div class="nav" @click="out" v-else>退出</div>
         </div>
       </div>
     </div>
     <div class="mainAll">
       <div class="main">
-        <el-card class="box-card" v-if="user === null">
+        <el-card class="box-card" v-if="user === ''">
           <div class="wrdO" style="margin-bottom:12px">CNode：Node.js专业中文社区</div>
           <div class="mainWord">
             <div class="wrdO">您可以</div>
@@ -78,7 +78,8 @@ export default {
   components: {},
   data() {
     return {
-      user: null
+      user: ""
+      
     };
   },
   methods: {
@@ -89,8 +90,11 @@ export default {
       this.$router.push("/login");
     },
     out() {
-      this.user = null;
+      this.user = ''
+
       localStorage.clear();
+      // this.$router.replace('/home');
+      localStorage.setItem('user','');
     },
   },
   mounted() {

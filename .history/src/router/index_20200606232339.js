@@ -16,6 +16,7 @@ const routes = [
   },
   {
     path: '/',
+    name: 'Layout',
     component: Layout,
     children: [
       {
@@ -37,20 +38,16 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-// router.beforeEach((to,form,next)=>{
-//   if(to.path=='/login'){
-//     sessionStorage.removeItem("user");
-//   }
-//   let user = JSON.parse(sessionStorage.getItem("user"));
-//   if(!user&&to.path!='/login'){
-//     next({path:'/login'})
-//   }else{
-//     next();
-//   }
-// })
-const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
-}
+router.beforeEach((to,form,next)=>{
+  if(to.path=='/login'){
+    sessionStorage.removeItem("user");
+  }
+  let user = JSON.parse(sessionStorage.getItem("user"));
+  if(!user&&to.path!='/login'){
+    next({path:'/'})
+  }else{
+    next();
+  }
+})
 
 export default router

@@ -16,6 +16,7 @@ const routes = [
   },
   {
     path: '/',
+    
     component: Layout,
     children: [
       {
@@ -48,9 +49,5 @@ const router = new VueRouter({
 //     next();
 //   }
 // })
-const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
-}
 
 export default router
