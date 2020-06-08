@@ -22,11 +22,6 @@ const routes = [
         path: '',
         name: 'Home',
         component: Home
-      },
-      {
-        path: '/detail',
-        name: 'Detail',
-        component: () => import('../views/Layout/Detail')
       }
     ]
   },

@@ -24,7 +24,7 @@
           <div class="title" @click="goToDetail(item)">{{item.title}}</div>
           <!-- <div v-for="item1"></div> -->
           <div>
-            <!-- <img :src="getDataTwo(item)" alt class="avatar" /> -->
+            <img :src="getDataTwo(item)" alt class="avatar" />
           </div>
         </div>
 
@@ -80,28 +80,28 @@ export default {
         })
         .catch(err => {});
     },
-    // getDataTwo(data) {
-    //   var url = `https://cnodejs.org/api/v1/topic/${data.id}`;
-    //   axios
-    //     .get(url)
-    //     .then(res => {
-    //       var replies = res.data.data.replies;
-    //       if (replies.length > 0) {
-    //         let avatar_url =
-    //           replies[replies.length - 1]["author"]["avatar_url"];
-    //         console.log(avatar_url);
-    //         return avatar_url;
-    //       }
-    //       return "";
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     });
-    // },
-    goToDetail(item) {
+    getDataTwo(data) {
+      var url = `https://cnodejs.org/api/v1/topic/${data.id}`;
+      axios
+        .get(url)
+        .then(res => {
+          var replies = res.data.data.replies;
+          if (replies.length > 0) {
+            let avatar_url =
+              replies[replies.length - 1]["author"]["avatar_url"];
+            console.log(avatar_url);
+            return avatar_url;
+          }
+          return "";
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    goToDetail(data) {
       this.$router.push({
         name: "Detail",
-        query: { id: item.id }
+        query: { id: data.id }
       });
     }
   },

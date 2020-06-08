@@ -98,7 +98,7 @@ export default {
     //       console.log(err);
     //     });
     // },
-    goToDetail(item) {
+    goToDetail(data) {
       this.$router.push({
         name: "Detail",
         query: { id: item.id }

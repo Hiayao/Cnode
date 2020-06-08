@@ -21,11 +21,8 @@
           <!-- 阅读量 -->
           <div class="visit_count">{{item.visit_count}}</div>
           <!-- 标题 -->
-          <div class="title" @click="goToDetail(item)">{{item.title}}</div>
+          <div class="title">{{item.title}}</div>
           <!-- <div v-for="item1"></div> -->
-          <div>
-            <!-- <img :src="getDataTwo(item)" alt class="avatar" /> -->
-          </div>
         </div>
 
         <div class="block">
@@ -37,7 +34,7 @@
             :page-sizes="[10, 20, 40]"
             :page-size="100"
             layout="total, sizes, prev, pager, next, jumper"
-            :total="400"
+            :total="100"
           ></el-pagination>
         </div>
       </el-card>
@@ -65,48 +62,37 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
-      axios
-        .get(`https://cnodejs.org/api/v1/topics?tab=all&page=${val}`)
-        .then(res => {
-          this.list = res.data.data;
-        })
-        .catch(err => {});
     },
     getData() {
       axios
-        .get(`https://cnodejs.org/api/v1/topics`)
+        .get("https://cnodejs.org/api/v1/topics")
         .then(res => {
           this.list = res.data.data;
+          //   this.id = res.data[item].id
+          console.log(res.data);
         })
-        .catch(err => {});
-    },
-    // getDataTwo(data) {
-    //   var url = `https://cnodejs.org/api/v1/topic/${data.id}`;
-    //   axios
-    //     .get(url)
+        .catch(err => {
+          console.log(err);
+        });
+    }
+
+    // getDataTwo(){
+    //     axios.get(`https://cnodejs.org/api/v1/topic/${this.id}`)
     //     .then(res => {
-    //       var replies = res.data.data.replies;
-    //       if (replies.length > 0) {
-    //         let avatar_url =
-    //           replies[replies.length - 1]["author"]["avatar_url"];
-    //         console.log(avatar_url);
-    //         return avatar_url;
-    //       }
-    //       return "";
+
+    //       console.log(res.data);
     //     })
     //     .catch(err => {
     //       console.log(err);
     //     });
-    // },
-    goToDetail(item) {
-      this.$router.push({
-        name: "Detail",
-        query: { id: item.id }
-      });
-    }
+    // }
   },
   mounted() {
     this.getData();
+    let arr = this.list.map(() => {
+      item=item.data.id;
+    });
+    console.log(arr);
   },
   watch: {},
   computed: {}

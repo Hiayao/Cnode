@@ -24,7 +24,7 @@
           <div class="title" @click="goToDetail(item)">{{item.title}}</div>
           <!-- <div v-for="item1"></div> -->
           <div>
-            <!-- <img :src="getDataTwo(item)" alt class="avatar" /> -->
+            <img :src="getDataTwo(item)" alt class="avatar" />
           </div>
         </div>
 
@@ -98,7 +98,7 @@ export default {
     //       console.log(err);
     //     });
     // },
-    goToDetail(item) {
+    goToDetail(data) {
       this.$router.push({
         name: "Detail",
         query: { id: item.id }
